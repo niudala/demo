@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ln.mapper.StudentMapper">
+    <resultMap id="infoRes" type="Student">
+        <id property="studentNum" column="StudentNum"></id>
+        <result property="name" column="Name"></result>
+        <result property="birthDay" jdbcType="DATE" column="BirthDay"></result>
+        <result property="sex" column="Sex"></result>
+        <result property="courseNum" column="CourseNum"></result>
+        <association property="course" javaType="Course">
+            <id property="courseNum" column="CourseNum"></id>
+            <result property="courseName" column="CourseName"></result>
+            <result property="teacher" column="TeacherNum"></result>
+        </association>
+    </resultMap>
+    <select id="findStudentinfo" resultMap="infoRes">
+        select * from student t1 join course t2 on t1.CourseNum = t2.CourseNum where t1.StudentNum = #{StudentNum}
+    </select>
+</mapper>

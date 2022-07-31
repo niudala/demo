@@ -1,48 +1,54 @@
 package com.ln.pojo;
 
+import java.util.List;
+
 public class Course {
-    private String CourseNum;
-    private String CourseName;
-    private String TeacherNum;
+    private Integer courseNum;
+    private String courseName;
+    private Integer teacher;
+    private List<Student> studentList;
 
-    public Course(String courseNum, String courseName, String teacherNum) {
-        this.CourseNum = courseNum;
-        this.CourseName = courseName;
-        this.TeacherNum = teacherNum;
-    }
-
-    public Course() {};
-
-    public String getCourseNum() {
-        return CourseNum;
-    }
-
-    public void setCourseNum(String courseNum) {
-        CourseNum = courseNum;
-    }
-
-    public String getCourseName() {
-        return CourseName;
-    }
-
-    public void setCourseName(String courseName) {
-        CourseName = courseName;
-    }
-
-    public String getTeacherNum() {
-        return TeacherNum;
-    }
-
-    public void setTeacherNum(String teacherNum) {
-        TeacherNum = teacherNum;
-    }
+    public Course() {}
 
     @Override
     public String toString() {
         return "Course{" +
-                "CourseNum='" + CourseNum + '\'' +
-                ", CourseName='" + CourseName + '\'' +
-                ", TeacherNum='" + TeacherNum + '\'' +
+                "courseNum=" + courseNum +
+                ", courseName='" + courseName + '\'' +
+                ", teacher=" + teacher +
+                ", studentList=" + studentList +
                 '}';
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
+
+    public Integer getCourseNum() {
+        return courseNum;
+    }
+
+    public void setCourseNum(Integer courseNum) {
+        this.courseNum = courseNum;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public Integer getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Integer teacher) {
+        this.teacher = teacher;
     }
 }
